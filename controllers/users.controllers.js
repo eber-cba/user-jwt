@@ -32,6 +32,7 @@ export const getUsers = async (req, res) => {
 export const createUser = async (req, res) => {
   try {
     const { email, password } = req.body;
+
     const user = await model.createUser({ email, password });
     res.json(user);
   } catch (error) {
