@@ -1,5 +1,6 @@
 import express from "express";
 import * as controller from "../controllers/users.controllers.js";
+import { verifyToken } from "../middleware/verifyToken.middleware.js";
 const router = express.Router();
 
 // GET /users/limit-orderby?limit=X&order_by=Y -> controller
@@ -9,7 +10,7 @@ router.get("/users/limit-orderby", controller.getUsersLimitOrderBy);
 router.get("/users/limit", controller.getUsersLimit);
 
 // GET /users -> controller
-router.get("/users",controller.getUsers);
+router.get("/users",verifyToken, controller.getUsers);
 
 // POST /users -> controller
 router.post("/users", controller.createUser);

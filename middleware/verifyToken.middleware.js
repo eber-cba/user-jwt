@@ -8,6 +8,7 @@ const verifyToken = async (req, res, next) => {
     if (!token) {
       return res.status(400).json({ message: 'el token debe estar presente' })
     }
+    
     const extractToken = token.split(' ')[1]
     const decoded = jwt.verify(extractToken, process.env.JWT_SECRET)
     req.user = decoded.email
@@ -19,3 +20,15 @@ const verifyToken = async (req, res, next) => {
 }
 
 export { verifyToken }
+/* 
+req
+{
+ body
+ params
+ query
+ headers:{
+  Authorization: "Bearer <token>"
+ }
+ user: "email"
+}
+*/

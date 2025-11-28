@@ -67,3 +67,18 @@ export const getUsersLimitOrderBy = async ({
   const { rows: users } = await pool.query(formattedQuery);
   return users;
 };
+
+/*
+/login
+el usuario se deberia logear con su email y password
+el usuario va enviar informacion entonces su ruta va ser post
+debemos validar si existe ese usuario
+comparacion de contraseña con bcrypt 
+
+/tecnicamente
+
+1: buscamos un usuario por email con su query en models
+
+
+
+ */
